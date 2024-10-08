@@ -9,6 +9,7 @@ interface ButtonProps {
   imageHeight?: number;
   onClick?: () => void;
   className?: string;
+  position?: 'left' | 'right'; // New prop to set the position of the image
 }
 
 const Button: FC<ButtonProps> = ({
@@ -19,11 +20,17 @@ const Button: FC<ButtonProps> = ({
   imageHeight = 24,
   onClick,
   className = '',
+  position = 'left'
 }) => {
   return (
     <button className={className} onClick={onClick}>
-      {imageSrc && <Image src={imageSrc} alt={imageAlt} width={imageWidth} height={imageHeight} />}
+      {position === 'left' && imageSrc && (
+        <Image src={imageSrc} alt={imageAlt} width={imageWidth} height={imageHeight} />
+      )}
       {textValue && <span>{textValue}</span>}
+      {position === 'right' && imageSrc && (
+        <Image src={imageSrc} alt={imageAlt} width={imageWidth} height={imageHeight} />
+      )}
     </button>
   );
 };

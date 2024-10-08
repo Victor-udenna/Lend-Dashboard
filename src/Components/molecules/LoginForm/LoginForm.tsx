@@ -9,6 +9,7 @@ import Text from '@/Components/atom/Text';
 export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,13 +37,18 @@ export default function LoginForm() {
           <div className="login-form__input-wrapper">
             <Input
               className="login-form__input"
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <span role="button" tabIndex={2} className="login-form__pasword-reveal" onClick={() => {}}>
-              Show
+            <span
+              role="button"
+              tabIndex={2}
+              className="login-form__pasword-reveal"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? 'Hide' : 'Show'}
             </span>
           </div>
         </div>

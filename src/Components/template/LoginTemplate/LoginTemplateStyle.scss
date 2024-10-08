@@ -4,7 +4,7 @@
   justify-content: space-between;
   height: 100vh;
   align-items: center;
-  padding: 106px 0px 106px 0px;
+  padding: 106px 97px 106px 0px;
 }
 
 .login-template__poster {
@@ -29,4 +29,36 @@
 .login-template__img {
   width: fit-content;
   height: 337.57px;
+}
+
+.login-template__mobile-logo__container {
+  display: none;
+}
+
+@media screen and (max-width: 576px) {
+  .login-template {
+    padding: 60px 20px;
+    flex-direction: column;
+    align-items: start;
+    gap: 62px;
+  }
+
+  .login-template__mobile-logo__container {
+    display: flex;
+  }
+
+  .login-template__mobilelogo {
+    width: 173.76px;
+    height: 36px;
+  }
+
+  .login-template__poster {
+    display: none;
+  }
+
+  .login-template {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }

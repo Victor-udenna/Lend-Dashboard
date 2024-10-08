@@ -7,6 +7,7 @@ import './LoginTemplateStyle.scss';
 export default function LoginTemplate() {
   return (
     <main className="login-template">
+
       <div className="login-template__poster">
         <div className="login-template__logo__container">
           <ImageAtom src={logoImg} width={20} height={20} className="login-template__logo" alt="image logo" />
@@ -21,6 +22,10 @@ export default function LoginTemplate() {
             alt="poster image"
           />
         </div>
+      </div>
+
+      <div className="login-template__mobile-logo__container">
+        <ImageAtom src={logoImg} width={20} height={20} className="login-template__mobilelogo" alt="image logo" />
       </div>
       <LoginForm />
     </main>
