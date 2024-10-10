@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import ImageAtom from '@/Components/atom/Image';
 import './SideBarStyle.scss';
@@ -30,122 +30,123 @@ import { useSidebar } from '@/Providers/context';
 
 export default function SideBar() {
   const { isSidebarOpen } = useSidebar();
-  console.log(isSidebarOpen)
 
   return (
-    <nav className={`sidebar  ? 'open' : 'closed'}`}>
-      <div className="sidebar__toggle-button">
-        <ImageAtom width={16} height={16} alt="organization icon" src={briefcaseIcon} />
-        <Text>{'Switch Organization'}</Text>
-        <ImageAtom width={16} height={16} alt="arrow icon" src={arrowdown} />
-      </div>
+    isSidebarOpen && (
+      <nav className="sidebar">
+        <div className="sidebar__toggle-button">
+          <ImageAtom width={16} height={16} alt="organization icon" src={briefcaseIcon} />
+          <Text>{'Switch Organization'}</Text>
+          <ImageAtom width={16} height={16} alt="arrow icon" src={arrowdown} />
+        </div>
 
-      <div className="sidebar__menu">
-        <ImageAtom width={16} height={16} alt="home icon" src={homeIcon} />
-        <Text>{'Dashboard'}</Text>
-      </div>
+        <div className="sidebar__menu">
+          <ImageAtom width={16} height={16} alt="home icon" src={homeIcon} />
+          <Text>{'Dashboard'}</Text>
+        </div>
 
-      <div className="sidebar-menu-container">
-        <Text className="sidebar__menu--header">{'CUSTOMERS'}</Text>
-        <div className="sidebar__menu active">
-          <ImageAtom width={16} height={12.8} alt="home icon" src={userIcon} />
-          <Text>{'Users'}</Text>
+        <div className="sidebar-menu-container">
+          <Text className="sidebar__menu--header">{'CUSTOMERS'}</Text>
+          <div className="sidebar__menu active">
+            <ImageAtom width={16} height={12.8} alt="home icon" src={userIcon} />
+            <Text>{'Users'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={12.8} alt="home icon" src={userGroup} />
+            <Text>{'Guarantors'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={16} alt="home icon" src={loanImg} />
+            <Text>{'Loan'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={19} height={16} alt="home icon" src={handshakeImg} />
+            <Text>{'Decision Models'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={14.22} alt="home icon" src={savingimg} />
+            <Text>{'Savings'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={18} height={22} alt="home icon" src={loanrequestImg} />
+            <Text>{'Loan Requests'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={12.8} alt="home icon" src={userCheckImg} />
+            <Text>{'Whitelist'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={12.8} alt="home icon" src={karmaimg} />
+            <Text>{'Karma'}</Text>
+          </div>
         </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={12.8} alt="home icon" src={userGroup} />
-          <Text>{'Guarantors'}</Text>
+        <div className="sidebar-menu-container">
+          <Text className="sidebar__menu--header">{'BUSINESSES'}</Text>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={12.8} alt="home icon" src={briefcaseIcon} />
+            <Text>{'Organization'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={18} height={22} alt="home icon" src={loanrequestImg} />
+            <Text>{'Loan Products'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={16} alt="home icon" src={savingImg} />
+            <Text>{'Savings Products'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={16} alt="home icon" src={feecharge} />
+            <Text>{'Fees and Charges'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={14.22} alt="home icon" src={transactionImg} />
+            <Text>{'Transactions'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={18} alt="home icon" src={galaxyimg} />
+            <Text>{'Services'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={12.8} alt="home icon" src={usercog} />
+            <Text>{'Service Account'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={12.8} alt="home icon" src={statmentimg} />
+            <Text>{'Settlements'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={16} alt="home icon" src={chartimg} />
+            <Text>{'Reports'}</Text>
+          </div>
         </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={16} alt="home icon" src={loanImg} />
-          <Text>{'Loan'}</Text>
+        <div className="sidebar-menu-container">
+          <Text className="sidebar__menu--header">{'SETTINGS'}</Text>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={16} alt="home icon" src={prefrencImg} />
+            <Text>{'Preferences'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={16} alt="home icon" src={feesimg} />
+            <Text>{'Fees and Pricing'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={21.33} alt="home icon" src={auditImg} />
+            <Text>{'Audit Logs'}</Text>
+          </div>
+          <div className="sidebar__menu">
+            <ImageAtom width={16} height={16} alt="home icon" src={tireimg} />
+            <Text>{'Systems Messages'}</Text>
+          </div>
         </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={19} height={16} alt="home icon" src={handshakeImg} />
-          <Text>{'Decision Models'}</Text>
-        </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={14.22} alt="home icon" src={savingimg} />
-          <Text>{'Savings'}</Text>
-        </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={18} height={22} alt="home icon" src={loanrequestImg} />
-          <Text>{'Loan Requests'}</Text>
-        </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={12.8} alt="home icon" src={userCheckImg} />
-          <Text>{'Whitelist'}</Text>
-        </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={12.8} alt="home icon" src={karmaimg} />
-          <Text>{'Karma'}</Text>
-        </div>
-      </div>
-      <div className="sidebar-menu-container">
-        <Text className="sidebar__menu--header">{'BUSINESSES'}</Text>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={12.8} alt="home icon" src={briefcaseIcon} />
-          <Text>{'Organization'}</Text>
-        </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={18} height={22} alt="home icon" src={loanrequestImg} />
-          <Text>{'Loan Products'}</Text>
-        </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={16} alt="home icon" src={savingImg} />
-          <Text>{'Savings Products'}</Text>
-        </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={16} alt="home icon" src={feecharge} />
-          <Text>{'Fees and Charges'}</Text>
-        </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={14.22} alt="home icon" src={transactionImg} />
-          <Text>{'Transactions'}</Text>
-        </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={18} alt="home icon" src={galaxyimg} />
-          <Text>{'Services'}</Text>
-        </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={12.8} alt="home icon" src={usercog} />
-          <Text>{'Service Account'}</Text>
-        </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={12.8} alt="home icon" src={statmentimg} />
-          <Text>{'Settlements'}</Text>
-        </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={16} alt="home icon" src={chartimg} />
-          <Text>{'Reports'}</Text>
-        </div>
-      </div>
-      <div className="sidebar-menu-container">
-        <Text className="sidebar__menu--header">{'SETTINGS'}</Text>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={16} alt="home icon" src={prefrencImg} />
-          <Text>{'Preferences'}</Text>
-        </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={16} alt="home icon" src={feesimg} />
-          <Text>{'Fees and Pricing'}</Text>
-        </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={21.33} alt="home icon" src={auditImg} />
-          <Text>{'Audit Logs'}</Text>
-        </div>
-        <div className="sidebar__menu">
-          <ImageAtom width={16} height={16} alt="home icon" src={tireimg} />
-          <Text>{'Systems Messages'}</Text>
-        </div>
-      </div>
 
-      <div className="sidebar-footer">
-        <div className="sidebar-footer__menu">
-          <ImageAtom width={16} height={16} alt="home icon" src={logoutimg} />
-          <Text>{'Logout'}</Text>
+        <div className="sidebar-footer">
+          <div className="sidebar-footer__menu">
+            <ImageAtom width={16} height={16} alt="home icon" src={logoutimg} />
+            <Text>{'Logout'}</Text>
+          </div>
+          <Text className="footer-text">{'v1.2.0'}</Text>
         </div>
-        <Text className="footer-text">{'v1.2.0'}</Text>
-      </div>
-    </nav>
+      </nav>
+    )
   );
 }

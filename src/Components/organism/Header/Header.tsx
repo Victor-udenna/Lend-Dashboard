@@ -12,10 +12,11 @@ import dropdown from '@/assets/images/dropdown.svg';
 import searchIcon from '@/assets/images/search-icon.svg';
 import avatar from '@/assets/images/avatar.svg';
 import listicon from '@/assets/images/list.svg';
+import lisopenIcon from '@/assets/images/list-nested.svg';
 import { useSidebar } from '@/Providers/context';
 
 export default function Header() {
-  const { toggleSidebar } = useSidebar();
+  const { toggleSidebar, isSidebarOpen } = useSidebar();
   return (
     <header className="header">
       <div className="header__search-section">
@@ -57,10 +58,10 @@ export default function Header() {
       </div>
       <Button
         className="header-toggle__button"
-        imageHeight={30}
-        imageWidth={30}
+        imageHeight={40}
+        imageWidth={40}
         imageAlt="list icon"
-        imageSrc={listicon}
+        imageSrc={isSidebarOpen ? lisopenIcon : listicon}
         onClick={() => {
           toggleSidebar();
         }}
