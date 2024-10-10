@@ -1,6 +1,21 @@
-.dashboardlayout {
-  background-color: yellow;
+.dashboard-layout {
   position: relative;
   display: flex;
-//   overflow: hidden;
+  align-items: start;
+  background-color: #fbfbfb;
+}
+
+.dashboard-content {
+  margin-top: 100px;
+  padding: 60px 66px;
+  width: 100%;
+}
+
+@media screen and (max-width: 576px) {
+  .dashboard-content {
+    margin-top: 70px;
+    padding: 60px 20px;
+    width: 100%;
+    overflow-x: hidden;
+  }
 }

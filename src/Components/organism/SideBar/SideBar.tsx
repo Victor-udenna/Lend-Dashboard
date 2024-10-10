@@ -37,7 +37,7 @@ export default function SideBar() {
         <div className="sidebar__toggle-button">
           <ImageAtom width={16} height={16} alt="organization icon" src={briefcaseIcon} />
           <Text>{'Switch Organization'}</Text>
-          <ImageAtom width={16} height={16} alt="arrow icon" src={arrowdown} />
+          <ImageAtom width={6.75} height={13.21} alt="arrow icon" src={arrowdown} />
         </div>
 
         <div className="sidebar__menu">
