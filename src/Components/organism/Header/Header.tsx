@@ -58,8 +58,8 @@ export default function Header() {
       </div>
       <Button
         className="header-toggle__button"
-        imageHeight={27}
-        imageWidth={27}
+        imageHeight={30}
+        imageWidth={30}
         imageAlt="list icon"
         imageSrc={isSidebarOpen ? lisopenIcon : listicon}
         onClick={() => {
