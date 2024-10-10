@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 interface SidebarContextProps {
   isSidebarOpen: boolean;
@@ -13,6 +13,21 @@ export const SidebarProvider: React.FC<{ children: ReactNode }> = ({ children })
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
 
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isLargeScreen = window.matchMedia('(min-width: 576px)').matches;
+      if (isLargeScreen) {
+        setIsSidebarOpen(true);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return <SidebarContext.Provider value={{ isSidebarOpen, toggleSidebar }}>{children}</SidebarContext.Provider>;
 };
