@@ -118,6 +118,66 @@ export default function UserTable() {
             <Text className="user-table__status-text active">{'Active'}</Text>
           </td>
         </tr>
+        <tr className="user-table__row">
+          <td className="user-table__organization">Lendsqr</td>
+          <td className="user-table__username">Adedeji</td>
+          <td className="user-table__email">adedeji@lendsqr.com</td>
+          <td className="user-table__phone">08078903721</td>
+          <td className="user-table__date-joined">May 15, 2020 10:00 AM</td>
+          <td className="user-table__status">
+            <Text className="user-table__status-text inactive">{'Inactive'}</Text>
+          </td>
+        </tr>
+        <tr className="user-table__row">
+          <td className="user-table__organization">Lendsqr</td>
+          <td className="user-table__username">Adedeji</td>
+          <td className="user-table__email">adedeji@lendsqr.com</td>
+          <td className="user-table__phone">08078903721</td>
+          <td className="user-table__date-joined">May 15, 2020 10:00 AM</td>
+          <td className="user-table__status">
+            <Text className="user-table__status-text pending">{'Pending'}</Text>
+          </td>
+        </tr>
+        <tr className="user-table__row">
+          <td className="user-table__organization">Lendsqr</td>
+          <td className="user-table__username">Adedeji</td>
+          <td className="user-table__email">adedeji@lendsqr.com</td>
+          <td className="user-table__phone">08078903721</td>
+          <td className="user-table__date-joined">May 15, 2020 10:00 AM</td>
+          <td className="user-table__status">
+            <Text className="user-table__status-text active">{'Active'}</Text>
+          </td>
+        </tr>
+        <tr className="user-table__row">
+          <td className="user-table__organization">Lendsqr</td>
+          <td className="user-table__username">Adedeji</td>
+          <td className="user-table__email">adedeji@lendsqr.com</td>
+          <td className="user-table__phone">08078903721</td>
+          <td className="user-table__date-joined">May 15, 2020 10:00 AM</td>
+          <td className="user-table__status">
+            <Text className="user-table__status-text inactive">{'Inactive'}</Text>
+          </td>
+        </tr>
+        <tr className="user-table__row">
+          <td className="user-table__organization">Lendsqr</td>
+          <td className="user-table__username">Adedeji</td>
+          <td className="user-table__email">adedeji@lendsqr.com</td>
+          <td className="user-table__phone">08078903721</td>
+          <td className="user-table__date-joined">May 15, 2020 10:00 AM</td>
+          <td className="user-table__status">
+            <Text className="user-table__status-text pending">{'Pending'}</Text>
+          </td>
+        </tr>
+        <tr className="user-table__row">
+          <td className="user-table__organization">Lendsqr</td>
+          <td className="user-table__username">Adedeji</td>
+          <td className="user-table__email">adedeji@lendsqr.com</td>
+          <td className="user-table__phone">08078903721</td>
+          <td className="user-table__date-joined">May 15, 2020 10:00 AM</td>
+          <td className="user-table__status">
+            <Text className="user-table__status-text active">{'Active'}</Text>
+          </td>
+        </tr>
       </tbody>
     </table>
   );
