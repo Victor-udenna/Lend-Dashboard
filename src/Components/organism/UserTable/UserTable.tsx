@@ -1,4 +1,3 @@
-import Button from '@/Components/atom/Button';
 import ImageAtom from '@/Components/atom/Image';
 import Text from '@/Components/atom/Text';
 import filterIcon from '@/assets/images/filter-icon.svg';
