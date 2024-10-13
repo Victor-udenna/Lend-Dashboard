@@ -9,7 +9,7 @@ interface ButtonProps {
   imageHeight?: number;
   onClick?: () => void;
   className?: string;
-  position?: 'left' | 'right'; // New prop to set the position of the image
+  position?: 'left' | 'right';
 }
 
 const Button: FC<ButtonProps> = ({

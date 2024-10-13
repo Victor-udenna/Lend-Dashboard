@@ -3,14 +3,22 @@ import React, { FC, ChangeEvent } from 'react';
 interface InputProps {
   type?: string;
   placeholder?: string;
-  value: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   className?: string;
+  id?: string;
 }
 
-const Input: FC<InputProps> = ({ type = 'text', placeholder, value, onChange, className }) => {
+const Input: FC<InputProps> = ({ type = 'text', placeholder, value, onChange, className, id }) => {
   return (
-    <input type={type} placeholder={placeholder} value={value} onChange={onChange} className={`input ${className}`} />
+    <input
+      type={type}
+      placeholder={placeholder}
+      id={id}
+      value={value}
+      onChange={onChange}
+      className={`input ${className}`}
+    />
   );
 };
 

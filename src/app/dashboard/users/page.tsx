@@ -6,6 +6,7 @@ import activeIcon from '@/assets/images/active-user.svg';
 import userLoan from '@/assets/images/user-loan.svg';
 import userSaving from '@/assets/images/usersaving.svg';
 import UserTable from '@/Components/organism/UserTable/UserTable';
+import Pagination from '@/Components/molecules/Pagination/Pagination';
 
 export default function UserPage() {
   return (
@@ -34,6 +35,7 @@ export default function UserPage() {
         </div>
       </div>
       <UserTable />
+      <Pagination />
     </div>
   );
 }
