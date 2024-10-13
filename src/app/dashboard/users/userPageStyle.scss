@@ -19,7 +19,6 @@
 }
 
 .userpage__summary-card {
-//   width: 240px;
   height: 160px;
   border-radius: 4px;
   border: 1px solid #213f7d0f;
@@ -31,6 +30,7 @@
   flex-grow: 1;
   box-shadow: 3px 5px 20px 0px #0000000a;
   border: 1px solid #213f7d0f;
+  width: 25%;
 }
 
 .userpage__summary-card-title {
