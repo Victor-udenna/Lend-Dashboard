@@ -2,7 +2,7 @@ import Input from '@/Components/atom/Input';
 import './TableFilterStyle.scss';
 import Button from '@/Components/atom/Button';
 
-export default function () {
+export default function TableFilter () {
   return (
     <div className="filter">
       <div className="filter__input-container">
