@@ -64,12 +64,14 @@
     font-weight: 600;
     line-height: 16.42px;
     text-align: center;
+    cursor: pointer;
   }
 }
 
 .filter__reset__button {
   color: #545f7d;
   border: 1px solid #545f7d;
+  background-color: white;
 }
 
 .filter__action__button {

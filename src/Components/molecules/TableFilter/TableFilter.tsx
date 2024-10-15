@@ -2,7 +2,7 @@ import Input from '@/Components/atom/Input';
 import './TableFilterStyle.scss';
 import Button from '@/Components/atom/Button';
 
-export default function TableFilter () {
+export default function TableFilter() {
   return (
     <div className="filter">
       <div className="filter__input-container">
@@ -42,8 +42,8 @@ export default function TableFilter () {
         <select id="status" className="filter__input"></select>
       </div>
       <div className="filter__button__container">
-        <Button className='filter__reset__button' textValue="Reset" />
-        <Button className='filter__action__button' textValue="Filter" />
+        <Button className="filter__reset__button" textValue="Reset" />
+        <Button className="filter__action__button" textValue="Filter" />
       </div>
     </div>
   );

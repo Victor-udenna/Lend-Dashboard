@@ -9,6 +9,8 @@
   margin-top: 100px;
   padding: 60px 66px;
   width: 100%;
+  margin-left: 283px;
+  height: 100%;
 }
 
 @media screen and (max-width: 576px) {
@@ -17,5 +19,6 @@
     padding: 60px 20px;
     width: 100%;
     overflow-x: hidden;
+    margin-left: 0px;
   }
 }
