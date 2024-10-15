@@ -7,7 +7,7 @@ import Text from '@/Components/atom/Text';
 import starFill from '@/assets/images/star-fill.svg';
 import starline from '@/assets/images/star-line.svg';
 
-export default function () {
+export default function UserDetails () {
   return (
     <div className="details">
       <Button
@@ -171,44 +171,6 @@ export default function () {
             </div>
           </div>
         </div>
-
-        {/* <div className="details__information">
-          <Text className="details___information__header">{'Personal Information'}</Text>
-          <div className="details_information__wrapper">
-            <div className="details__information__container">
-              <Text className="details__information__header__text">{'Full Name'}</Text>
-              <Text className="details__information__text">{'Grace Effiom'}</Text>
-            </div>
-            <div className="details__information__container">
-              <Text className="details__information__header__text">{'Phone Number'}</Text>
-              <Text className="details__information__text">{'07060780922'}</Text>
-            </div>
-            <div className="details__information__container">
-              <Text className="details__information__header__text">{'Email Address'}</Text>
-              <Text className="details__information__text">{'grace@gmail.com'}</Text>
-            </div>
-            <div className="details__information__container">
-              <Text className="details__information__header__text">{'Bvn'}</Text>
-              <Text className="details__information__text">{'07060780922'}</Text>
-            </div>
-            <div className="details__information__container">
-              <Text className="details__information__header__text">{'Gender'}</Text>
-              <Text className="details__information__text">{'Female'}</Text>
-            </div>
-            <div className="details__information__container">
-              <Text className="details__information__header__text">{'Marital status'}</Text>
-              <Text className="details__information__text">{'Single'}</Text>
-            </div>
-            <div className="details__information__container">
-              <Text className="details__information__header__text">{'Children'}</Text>
-              <Text className="details__information__text">{'None'}</Text>
-            </div>
-            <div className="details__information__container">
-              <Text className="details__information__header__text">{'Type of residence'}</Text>
-              <Text className="details__information__text">{'Parent’s Apartment'}</Text>
-            </div>
-          </div>
-        </div> */}
       </div>
     </div>
   );
