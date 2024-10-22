@@ -1,4 +1,4 @@
-import UserDetails from '@/Components/template/LoginTemplate/UserDetails/UserDetails';
+import UserDetails from '@/Components/template/UserDetails/UserDetails';
 
 const page = () => {
   return (

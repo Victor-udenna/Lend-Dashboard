@@ -6,13 +6,17 @@ import arrowRight from '@/assets/images/arrow-right.svg';
 import arrowdowm from '@/assets/images/arrow-down.svg';
 import ImageAtom from '@/Components/atom/Image';
 
-export default function Pagination() {
+interface Ipagination {
+  totalCount: number;
+}
+
+export default function Pagination({ totalCount }: Ipagination) {
   return (
     <div className="pagination">
       <div className="pagination__result">
         {' '}
         <Text>{'Showing'}</Text>
-        <div className='pagination__select__container'>
+        <div className="pagination__select__container">
           <select className="pagination__result-select">
             <option value={10}>{'10'}</option>
             <option value={20}>{'20'}</option>
@@ -21,7 +25,7 @@ export default function Pagination() {
           </select>
           <ImageAtom width={12} height={12} alt="select icon" src={arrowdowm} />
         </div>
-        <Text>{`out of ${100}`}</Text>
+        <Text>{`out of ${totalCount}`}</Text>
       </div>
       <div className="pagination__control">
         <Button

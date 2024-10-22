@@ -25,6 +25,10 @@
   }
 }
 
+tbody tr {
+  cursor: pointer;
+}
+
 .user-table__header {
   display: flex;
   align-items: center;
@@ -80,7 +84,7 @@ td {
   background-color: #f3fcf6;
 }
 
-.user-table__status-text.blacklist {
+.user-table__status-text.blacklisted {
   color: #545f7d;
   background-color: #f5f5f7;
 }
@@ -113,7 +117,7 @@ td {
   flex-direction: column;
   background-color: white;
   padding: 16px;
-
+  z-index: 10;
   button {
     display: flex;
     align-items: center;

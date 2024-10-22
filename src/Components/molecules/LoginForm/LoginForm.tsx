@@ -5,11 +5,13 @@ import Button from '@/Components/atom/Button';
 import Input from '@/Components/atom/Input';
 import './LoginFormStyle.scss';
 import Text from '@/Components/atom/Text';
+import { useRouter } from 'next/navigation';
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false); 
+  const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -53,7 +55,13 @@ export default function LoginForm() {
           </div>
         </div>
         <Text className="login-form__forgot-password">{'Forgot PASSWORD?'}</Text>
-        <Button className="login-form__button" textValue="LOG IN" />
+        <Button
+          onClick={() => {
+            router.push('/dashboard');
+          }}
+          className="login-form__button"
+          textValue="LOG IN"
+        />
       </form>
     </div>
   );

@@ -1,3 +1,5 @@
+'use client';
+
 import Button from '@/Components/atom/Button';
 import './UserDetailsStyle.scss';
 import arrow from '@/assets/images/arrow-left-long.svg';
@@ -6,11 +8,16 @@ import userAvatar from '@/assets/images/detail-avatar.svg';
 import Text from '@/Components/atom/Text';
 import starFill from '@/assets/images/star-fill.svg';
 import starline from '@/assets/images/star-line.svg';
+import { useRouter } from 'next/navigation';
 
-export default function UserDetails () {
+export default function UserDetails() {
+  const router = useRouter();
   return (
     <div className="details">
       <Button
+        onClick={() => {
+          router.push('/dashboard/users');
+        }}
         imageSrc={arrow}
         imageHeight={9.38}
         imageWidth={26.72}
