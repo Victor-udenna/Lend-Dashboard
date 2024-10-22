@@ -19,7 +19,6 @@ export default function UserTable({ data }: any) {
 
   const toggleFilter = () => {
     setFilter((prev) => !prev);
-    console.log(filter);
   };
 
   return (
