@@ -37,13 +37,13 @@ interface Guarantor {
   relationship: string;
 }
 
- interface User {
+ export type User = {
   id?: number;
   userid: string;
   status: string;
   withLoan: boolean;
   withSavings: boolean;
-  dateJoined: any;
+  dateJoined: Date;
   personal_information: PersonalInformation;
   education_employment: EducationEmployment;
   socials: Socials;

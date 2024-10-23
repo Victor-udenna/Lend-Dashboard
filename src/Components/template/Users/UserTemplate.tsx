@@ -9,11 +9,11 @@ import userLoan from '@/assets/images/user-loan.svg';
 import userSaving from '@/assets/images/usersaving.svg';
 import UserTable from '@/Components/organism/UserTable/UserTable';
 import Pagination from '@/Components/molecules/Pagination/Pagination';
-import db from '@/lib/db';
+import db, { User } from '@/lib/db';
 import useUserCount from '@/lib/userCount';
 
 export default function UserTemplate() {
-  const [users, setUsers] = useState<any[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
   const [animatedCount, setAnimatedCount] = useState({
     totalUsers: 0,
     activeUsers: 0,

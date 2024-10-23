@@ -21,6 +21,7 @@ export default function UserTable({ data }: any) {
     setFilter((prev) => !prev);
   };
 
+  console.log(data);
   return (
     <div className="user-table__container">
       {data ? (
