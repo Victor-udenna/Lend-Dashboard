@@ -114,7 +114,7 @@ export default function UserTable({ data } : UserTableProps ) {
           </thead>
 
           <tbody>
-            {data.map((user: any) => {
+            {data.map((user: User) => {
               return (
                 <tr
                   key={user.userid}
