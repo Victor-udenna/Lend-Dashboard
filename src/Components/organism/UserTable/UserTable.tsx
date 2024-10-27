@@ -11,8 +11,13 @@ import TableFilter from '@/Components/molecules/TableFilter/TableFilter';
 import activeUserIcon from '@/assets/images/active-user-btn.svg';
 import blackListuser from '@/assets/images/blacklist.svg';
 import { useRouter } from 'next/navigation';
+import { User } from '@/lib/db';
 
-export default function UserTable({ data }: any) {
+interface UserTableProps {
+  readonly data: readonly User[];
+}
+
+export default function UserTable({ data } : UserTableProps ) {
   const router = useRouter();
 
   const [filter, setFilter] = useState(false);
@@ -21,7 +26,6 @@ export default function UserTable({ data }: any) {
     setFilter((prev) => !prev);
   };
 
-  console.log(data);
   return (
     <div className="user-table__container">
       {data ? (
