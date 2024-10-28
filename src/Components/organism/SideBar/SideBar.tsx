@@ -54,8 +54,9 @@ export default function SideBar() {
           <ImageAtom width={6.75} height={13.21} alt="arrow icon" src={arrowdown} />
         </div>
 
-        <div role='button'
-        tabIndex={1}
+        <div
+          role="button"
+          tabIndex={1}
           className={`sidebar__menu ${activeMenu === '/dashboard' ? 'active' : ''}`}
           onClick={() => handleMenuClick('/dashboard')}
         >

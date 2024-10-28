@@ -7,17 +7,61 @@ import arrowdowm from '@/assets/images/arrow-down.svg';
 import ImageAtom from '@/Components/atom/Image';
 
 interface Ipagination {
-  totalCount: number;
+  readonly totalCount: number;
+  readonly currentPage: number;
+  readonly itemsPerPage: number;
+  readonly onPageChange: (page: number) => void;
+  readonly onItemsPerPageChange: (items: number) => void;
 }
 
-export default function Pagination({ totalCount }: Ipagination) {
+export default function Pagination({
+  totalCount,
+  currentPage,
+  itemsPerPage,
+  onPageChange,
+  onItemsPerPageChange,
+}: Ipagination) {
+  const totalPages = Math.ceil(totalCount / itemsPerPage);
+
+  const handleItemsPerPageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    onItemsPerPageChange(parseInt(e.target.value, 10));
+  };
+
+
+  const generatePageNumbers = () => {
+    const pages = [];
+
+    if (totalPages <= 6) {
+      for (let i = 1; i <= totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      pages.push(1, 2, 3);
+
+      if (currentPage > 4) {
+        pages.push('...');
+      }
+
+      if (currentPage > 3 && currentPage < totalPages - 2) {
+        pages.push(currentPage);
+      }
+
+      if (currentPage < totalPages - 3) {
+        pages.push('...');
+      }
+
+      pages.push(totalPages - 2, totalPages - 1, totalPages);
+    }
+
+    return pages;
+  };
+
   return (
     <div className="pagination">
       <div className="pagination__result">
-        {' '}
         <Text>{'Showing'}</Text>
         <div className="pagination__select__container">
-          <select className="pagination__result-select">
+          <select className="pagination__result-select" value={itemsPerPage} onChange={handleItemsPerPageChange}>
             <option value={10}>{'10'}</option>
             <option value={20}>{'20'}</option>
             <option value={50}>{'50'}</option>
@@ -30,6 +74,7 @@ export default function Pagination({ totalCount }: Ipagination) {
       <div className="pagination__control">
         <Button
           className="pagination__btn"
+          onClick={() => onPageChange(Math.max(currentPage - 1, 1))}
           imageAlt="arrow btn"
           imageHeight={11.21}
           imageWidth={6.75}
@@ -37,17 +82,20 @@ export default function Pagination({ totalCount }: Ipagination) {
         />
 
         <div className="pagination__page">
-          <Text className="active">{1}</Text>
-          <Text>{2}</Text>
-          <Text>{3}</Text>
-          <Text>{'...'}</Text>
-          <Text>{12}</Text>
-          <Text>{13}</Text>
-          <Text>{14}</Text>
+          {generatePageNumbers().map((page, index) => (
+            <Text
+              key={index}
+              className={currentPage === page ? 'active' : ''}
+              onClick={() => typeof page === 'number' && onPageChange(page)}
+            >
+              {page}
+            </Text>
+          ))}
         </div>
 
         <Button
           className="pagination__btn"
+          onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))}
           imageAlt="arrow btn"
           imageHeight={11.21}
           imageWidth={6.75}

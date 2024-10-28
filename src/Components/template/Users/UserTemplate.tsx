@@ -14,6 +14,8 @@ import useUserCount from '@/lib/userCount';
 
 export default function UserTemplate() {
   const [users, setUsers] = useState<User[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
   const [animatedCount, setAnimatedCount] = useState({
     totalUsers: 0,
     activeUsers: 0,
@@ -35,6 +37,20 @@ export default function UserTemplate() {
   }, []);
 
   const { totalUsers, activeUsers, userwithLoan, userwithSavings } = useUserCount(users);
+
+  const paginatedUsers = users.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
+  const handleItemsPerPageChange = (items: number) => {
+    setItemsPerPage(items);
+    setCurrentPage(1);
+  };
 
   useEffect(() => {
     const duration = 100;
@@ -85,8 +101,14 @@ export default function UserTemplate() {
           <Text className="userpage__summary-card-count">{animatedCount.userwithSavings}</Text>
         </div>
       </div>
-      <UserTable data={users} />
-      <Pagination totalCount={users.length} />
+      <UserTable data={paginatedUsers} />
+      <Pagination
+        totalCount={users.length}
+        currentPage={currentPage}
+        itemsPerPage={itemsPerPage}
+        onPageChange={handlePageChange}
+        onItemsPerPageChange={handleItemsPerPageChange}
+      />
     </div>
   );
 }
