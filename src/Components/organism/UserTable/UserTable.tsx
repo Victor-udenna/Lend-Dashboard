@@ -32,7 +32,6 @@ export default function UserTable({ data }: UserTableProps) {
   const [filter, setFilter] = useState(false);
   const [selectedId, setSelectedId] = useState<string>('');
   const [isPopup, setIspopUp] = useState(false);
-  const [filterData, setFilterData] = useState<FilterValues>({});
   const [filteredData, setFilteredData] = useState<User[]>([...data]);
   const filterRef = useRef<HTMLDivElement>(null);
   const popupRef = useRef<HTMLDivElement>(null);
@@ -48,8 +47,6 @@ export default function UserTable({ data }: UserTableProps) {
   };
 
   const applyFilter = (filterValues: FilterValues) => {
-    setFilterData(filterValues);
-
     const newFilteredData = data.filter((user) => {
       const { username = '', email = '', date = '', phoneNumber = '', status = '' } = filterValues;
 
