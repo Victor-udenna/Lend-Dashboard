@@ -38,10 +38,7 @@ export default function UserTemplate() {
 
   const { totalUsers, activeUsers, userwithLoan, userwithSavings } = useUserCount(users);
 
-  const paginatedUsers = users.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+  const paginatedUsers = users.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);

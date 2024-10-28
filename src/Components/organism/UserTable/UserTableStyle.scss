@@ -11,7 +11,6 @@
   border-radius: 4px;
   margin-top: 40px;
   padding: 16px;
-  position: relative;
 
   th,
   td {
@@ -25,7 +24,11 @@
   }
 }
 
-tbody tr {
+.user-table__row {
+  position: relative;
+}
+
+.user-table__username {
   cursor: pointer;
 }
 
@@ -90,7 +93,6 @@ td {
 }
 
 .user-table__moreaction {
-  position: relative;
   p {
     visibility: hidden;
   }
@@ -105,7 +107,7 @@ td {
 .user-table__menu {
   position: absolute;
   right: 30px;
-  top: 95px;
+  top: 35px;
   width: 180px;
   height: 120px;
   border: 1px solid #545f7d0a;
