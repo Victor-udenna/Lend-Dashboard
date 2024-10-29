@@ -64,7 +64,7 @@ class UserDatabase extends Dexie {
 
 const db = new UserDatabase();
 
-export async function fetchUserById(id: string | any) {
+export async function fetchUserById(id: string ) {
   try {
     const user = await db.users.get(id);
     return user;
