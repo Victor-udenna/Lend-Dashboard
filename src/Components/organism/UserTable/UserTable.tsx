@@ -1,4 +1,3 @@
-'use client';
 import { useState, useEffect, useRef } from 'react';
 import ImageAtom from '@/Components/atom/Image';
 import Text from '@/Components/atom/Text';
@@ -42,8 +41,13 @@ export default function UserTable({ data }: UserTableProps) {
   };
 
   const handlePopup = (userId: string) => {
-    setIspopUp((prev) => !prev);
-    setSelectedId(userId);
+    if (selectedId === userId && isPopup) {
+      setIspopUp(false);
+      setSelectedId('');
+    } else {
+      setIspopUp(true);
+      setSelectedId(userId);
+    }
   };
 
   const applyFilter = (filterValues: FilterValues) => {
@@ -75,7 +79,11 @@ export default function UserTable({ data }: UserTableProps) {
       if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
         setFilter(false);
       }
-      if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
+      if (
+        popupRef.current &&
+        !popupRef.current.contains(event.target as Node) &&
+        !(event.target as HTMLElement).closest('.user-table__actionbtn')
+      ) {
         setIspopUp(false);
         setSelectedId('');
       }
@@ -145,8 +153,7 @@ export default function UserTable({ data }: UserTableProps) {
               <tr key={user.userid} className="user-table__row">
                 <td className="user-table__organization">{'Lendsqr'}</td>
                 <td
-                  tabIndex={i}
-                  onClick={() => router.push('/dashboard/users/details')}
+                  onClick={() => router.push(`/dashboard/users/details?userid=${user.userid}`)}
                   className="user-table__username"
                 >
                   {user.personal_information.firstname + ' ' + user.personal_information.lastname}
@@ -174,21 +181,25 @@ export default function UserTable({ data }: UserTableProps) {
                         imageWidth={15.1}
                         imageSrc={viewIcon}
                         textValue="View Details"
+                        onClick={() => router.push(`/dashboard/users/details?userid=${user.userid}`)}
                       />
-                      <Button
-                        position="left"
-                        imageHeight={14}
-                        imageWidth={14}
-                        imageSrc={blackListuser}
-                        textValue="Blacklist User"
-                      />
-                      <Button
-                        position="left"
-                        imageHeight={14}
-                        imageWidth={14}
-                        imageSrc={activeUserIcon}
-                        textValue="Activate User"
-                      />
+                      {user.status === 'active' ? (
+                        <Button
+                          position="left"
+                          imageHeight={14}
+                          imageWidth={14}
+                          imageSrc={blackListuser}
+                          textValue="Blacklist User"
+                        />
+                      ) : (
+                        <Button
+                          position="left"
+                          imageHeight={14}
+                          imageWidth={14}
+                          imageSrc={activeUserIcon}
+                          textValue="Activate User"
+                        />
+                      )}
                     </div>
                   )}
                 </td>

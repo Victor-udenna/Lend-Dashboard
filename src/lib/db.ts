@@ -37,7 +37,7 @@ interface Guarantor {
   relationship: string;
 }
 
- export type User = {
+export type User = {
   id?: number;
   userid: string;
   status: string;
@@ -48,7 +48,7 @@ interface Guarantor {
   education_employment: EducationEmployment;
   socials: Socials;
   guarantor: Guarantor;
-}
+};
 
 class UserDatabase extends Dexie {
   users!: Table<User>;
@@ -63,6 +63,16 @@ class UserDatabase extends Dexie {
 }
 
 const db = new UserDatabase();
+
+export async function fetchUserById(id: string | any) {
+  try {
+    const user = await db.users.get(id);
+    return user;
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    return null;
+  }
+}
 
 const generateFakeData = async () => {
   const fakedata: User[] = [];

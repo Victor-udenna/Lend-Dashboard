@@ -50,7 +50,7 @@ export default function UserTemplate() {
   };
 
   useEffect(() => {
-    const duration = 100;
+    const duration = 200;
 
     const animateCount = (targetValue: number, field: keyof typeof animatedCount) => {
       const step = Math.ceil(targetValue / (duration / 10));

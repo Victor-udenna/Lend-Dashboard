@@ -109,7 +109,7 @@ td {
   right: 30px;
   top: 35px;
   width: 180px;
-  height: 120px;
+  height: fit-content;
   border: 1px solid #545f7d0a;
   box-shadow: 3px 5px 20px 0px #0000000a;
   border-radius: 4px;
@@ -118,6 +118,7 @@ td {
   justify-content: space-between;
   flex-direction: column;
   background-color: white;
+  gap: 21px;
   padding: 16px;
   z-index: 10;
   button {
