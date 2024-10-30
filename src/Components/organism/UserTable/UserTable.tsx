@@ -154,7 +154,7 @@ export default function UserTable({ data }: UserTableProps) {
           </thead>
 
           <tbody>
-            {filteredData.map((user: User, i: number) => (
+            {filteredData.map((user: User) => (
               <tr key={user.userid} className="user-table__row">
                 <td className="user-table__organization">{'Lendsqr'}</td>
                 <td
