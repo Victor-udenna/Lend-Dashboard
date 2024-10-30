@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import ImageAtom from '@/Components/atom/Image';
 import './SideBarStyle.scss';
 import briefcaseIcon from '@/assets/images/briefcase 1.svg';
+import Button from '@/Components/atom/Button';
 import arrowdown from '@/assets/images/arrow-down.svg';
 import Text from '@/Components/atom/Text';
 import homeIcon from '@/assets/images/home.svg';
@@ -27,18 +28,21 @@ import feesimg from '@/assets/images/badge-percent 1.svg';
 import auditImg from '@/assets/images/clipboard-list 1.svg';
 import tireimg from '@/assets/images/tire 1.svg';
 import logoutimg from '@/assets/images/sign-out 1.svg';
-import { useSidebar } from '@/Providers/context';
 import { useRouter, usePathname } from 'next/navigation';
+import { useSidebar } from '@/Providers/context';
+import listicon from '@/assets/images/list.svg';
+import lisopenIcon from '@/assets/images/list-nested.svg';
 
 export default function SideBar() {
-  const { isSidebarOpen } = useSidebar();
   const router = useRouter();
   const pathname = usePathname();
   const [activeMenu, setActiveMenu] = useState(pathname);
+  const { toggleSidebar, isSidebarOpen } = useSidebar();
 
   const handleMenuClick = (path: string) => {
     setActiveMenu(path);
     router.push(path);
+    toggleSidebar()
   };
 
   useEffect(() => {
@@ -247,6 +251,16 @@ export default function SideBar() {
           <ImageAtom width={16} height={12.8} alt="logout icon" src={logoutimg} />
           <Text>{'Logout'}</Text>
         </div>
+        <Button
+          className="sidebar-toggle__button"
+          imageHeight={30}
+          imageWidth={30}
+          imageAlt="list icon"
+          imageSrc={isSidebarOpen ? lisopenIcon : listicon}
+          onClick={() => {
+            toggleSidebar();
+          }}
+        />
       </nav>
     )
   );

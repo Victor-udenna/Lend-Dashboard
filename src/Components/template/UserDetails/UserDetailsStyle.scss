@@ -250,6 +250,10 @@
     gap: 30px;
   }
 
+  .details__header__text__container {
+    align-items: center;
+  }
+
   .user__tier__container {
     border: none;
   }
@@ -264,6 +268,10 @@
 
   .details__header__text {
     display: none;
+  }
+
+  .details__information__text {
+    font-size: 12px;
   }
 
   .details__button__container {

@@ -24,8 +24,6 @@ export default function UserDetails() {
 
   console.log('Fetched user:', user);
 
-  console.log(user?.id);
-
   return (
     <div className="details">
       <Button
@@ -65,15 +63,36 @@ export default function UserDetails() {
             </div>
             <div className="details__header__text__container user__tier__container">
               <Text className="user__tier">{'User’s Tier'}</Text>
-              <div className="user__tier__rate">
-                <ImageAtom alt="user tier icon" width={14.08} height={13.43} src={starFill} />
-                <ImageAtom alt="user tier icon" width={14.08} height={13.43} src={starline} />
-                <ImageAtom alt="user tier icon" width={14.08} height={13.43} src={starline} />
-              </div>
+
+              {user?.user_tier === 1 && (
+                <div className="user__tier__rate">
+                  <ImageAtom alt="user tier icon" width={14.08} height={13.43} src={starFill} />
+                  <ImageAtom alt="user tier icon" width={14.08} height={13.43} src={starline} />
+                  <ImageAtom alt="user tier icon" width={14.08} height={13.43} src={starline} />
+                </div>
+              )}
+
+              {user?.user_tier === 2 && (
+                <div className="user__tier__rate">
+                  <ImageAtom alt="user tier icon" width={14.08} height={13.43} src={starFill} />
+                  <ImageAtom alt="user tier icon" width={14.08} height={13.43} src={starFill} />
+                  <ImageAtom alt="user tier icon" width={14.08} height={13.43} src={starline} />
+                </div>
+              )}
+
+              {user?.user_tier === 3 && (
+                <div className="user__tier__rate">
+                  <ImageAtom alt="user tier icon" width={14.08} height={13.43} src={starFill} />
+                  <ImageAtom alt="user tier icon" width={14.08} height={13.43} src={starFill} />
+                  <ImageAtom alt="user tier icon" width={14.08} height={13.43} src={starFill} />
+                </div>
+              )}
             </div>
             <div className="details__header__text__container">
-              <Text className="user__loan">{'₦200,000.00'}</Text>
-              <Text className="user__bank">{'9912345678/Providus Bank'}</Text>
+              <Text className="user__loan">{user ? '₦' + user.account_balance.toLocaleString() : 'loading'}</Text>
+              <Text className="user__bank">{`${user ? user.account_number : 'loading'}/${
+                user ? user.bank : 'loading'
+              }`}</Text>
             </div>
           </div>
 
@@ -123,7 +142,7 @@ export default function UserDetails() {
             <div className="details__information__container">
               <Text className="details__information__header__text">{'Marital Status'}</Text>
               <Text className="details__information__text">
-                {user ? user.personal_information.residence_type : 'Loading...'}
+                {user ? user.personal_information.marital_status : 'Loading...'}
               </Text>
             </div>
             <div className="details__information__container">
@@ -178,16 +197,16 @@ export default function UserDetails() {
               <Text className="details__information__text">
                 {user
                   ? '₦' +
-                    user.education_employment.min_monthly_income +
+                    user.education_employment.min_monthly_income.toLocaleString() +
                     ' - ₦' +
-                    user.education_employment.max_monthly_income
+                    user.education_employment.max_monthly_income.toLocaleString()
                   : 'Loading...'}
               </Text>
             </div>
             <div className="details__information__container">
               <Text className="details__information__header__text">{'Loan Repayment'}</Text>
               <Text className="details__information__text">
-                {user ? '₦' + user.education_employment.loan_repayment : 'Loading...'}
+                {user ? '₦' + user.education_employment.loan_repayment.toLocaleString() : 'Loading...'}
               </Text>
             </div>
           </div>

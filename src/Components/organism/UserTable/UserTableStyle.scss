@@ -160,6 +160,9 @@ td {
     th {
       padding: 30px 12px 18px 12px;
       font-size: 14px;
+      img {
+        display: none;
+      }
     }
 
     th:nth-child(3),

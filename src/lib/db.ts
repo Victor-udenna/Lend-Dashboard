@@ -9,7 +9,7 @@ interface PersonalInformation {
   bvn: string;
   gender: string;
   children: number;
-  residence_type: number;
+  residence_type: string;
   marital_status: string;
 }
 
@@ -106,12 +106,25 @@ const bankList = [
   'Keystone Bank Limited',
 ];
 
+const employeeResidenceTypes = [
+  'Apartment',
+  'House',
+  'Condominium',
+  'Townhouse',
+  'Duplex',
+  'Shared Housing',
+  'Dormitory',
+  'Mobile Home',
+  'Company-provided Housing',
+  'Temporary Housing',
+];
+
 const generateFakeData = async () => {
   const fakedata: User[] = [];
 
   for (let i = 0; i < 500; i++) {
     fakedata.push({
-      id: i ,
+      id: i,
       userid: faker.string.uuid(),
       status: faker.helpers.arrayElement(['blacklisted', 'active', 'inactive', 'pending']),
       withLoan: faker.helpers.arrayElement([true, false]),
@@ -129,7 +142,7 @@ const generateFakeData = async () => {
         bvn: faker.number.bigInt({ min: 1000000000000, max: 9999999999999 }).toString(),
         gender: faker.person.sex(),
         children: faker.number.int({ min: 0, max: 6 }),
-        residence_type: faker.helpers.arrayElement([1, 2, 3, 4]),
+        residence_type: faker.helpers.arrayElement(employeeResidenceTypes),
         marital_status: faker.helpers.arrayElement(['single', 'married']),
       },
       education_employment: {

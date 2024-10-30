@@ -97,7 +97,7 @@ export default function UserTable({ data }: UserTableProps) {
 
   const handleStatusChange = async (userId: number, newStatus: string) => {
     await updateUserStatus(userId, newStatus);
-    await router.refresh();
+    window.location.reload();
   };
 
   return (
