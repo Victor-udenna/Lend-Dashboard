@@ -10,6 +10,7 @@ interface PersonalInformation {
   gender: string;
   children: number;
   residence_type: number;
+  marital_status: string;
 }
 
 interface EducationEmployment {
@@ -38,12 +39,16 @@ interface Guarantor {
 }
 
 export type User = {
-  id?: number;
+  id: number;
   userid: string;
   status: string;
   withLoan: boolean;
   withSavings: boolean;
   dateJoined: Date;
+  bank: string;
+  account_number: number;
+  account_balance: number;
+  user_tier: number;
   personal_information: PersonalInformation;
   education_employment: EducationEmployment;
   socials: Socials;
@@ -55,7 +60,7 @@ class UserDatabase extends Dexie {
 
   constructor() {
     super('UserData');
-    this.version(3).stores({
+    this.version(4).stores({
       users:
         '++id, status, userid, withLoan, withSavings, dateJoined, personal_information, education_employment, socials, guarantor',
     });
@@ -64,7 +69,7 @@ class UserDatabase extends Dexie {
 
 const db = new UserDatabase();
 
-export async function fetchUserById(id: string ) {
+export async function fetchUserById(id: string) {
   try {
     const user = await db.users.get(id);
     return user;
@@ -74,16 +79,48 @@ export async function fetchUserById(id: string ) {
   }
 }
 
+export async function updateUserStatus(Id: number, newStatus: string) {
+  try {
+    await db.users.update(Id, { status: newStatus });
+    console.log(`User ${Id} status updated to ${newStatus}`);
+  } catch (error) {
+    console.error('Error updating user status:', error);
+  }
+}
+
+const bankList = [
+  'Access Bank Plc',
+  'Zenith Bank Plc',
+  'First Bank of Nigeria Limited',
+  'United Bank for Africa (UBA)',
+  'Guaranty Trust Bank (GTBank)',
+  'Union Bank of Nigeria Plc',
+  'Fidelity Bank Plc',
+  'Sterling Bank Plc',
+  'Ecobank Nigeria',
+  'Stanbic IBTC Bank Plc',
+  'Polaris Bank Limited',
+  'Unity Bank Plc',
+  'Wema Bank Plc',
+  'Heritage Bank Plc',
+  'Keystone Bank Limited',
+];
+
 const generateFakeData = async () => {
   const fakedata: User[] = [];
 
   for (let i = 0; i < 500; i++) {
     fakedata.push({
+      id: i ,
       userid: faker.string.uuid(),
       status: faker.helpers.arrayElement(['blacklisted', 'active', 'inactive', 'pending']),
       withLoan: faker.helpers.arrayElement([true, false]),
       withSavings: faker.helpers.arrayElement([true, false]),
       dateJoined: faker.date.past({ years: 5 }),
+      bank: faker.helpers.arrayElement(bankList),
+      account_number: parseInt(faker.finance.accountNumber()),
+      account_balance: faker.number.int({ min: 400000, max: 1000000 }),
+      user_tier: faker.helpers.arrayElement([1, 2, 3]),
       personal_information: {
         firstname: faker.person.firstName(),
         lastname: faker.person.lastName(),
@@ -93,6 +130,7 @@ const generateFakeData = async () => {
         gender: faker.person.sex(),
         children: faker.number.int({ min: 0, max: 6 }),
         residence_type: faker.helpers.arrayElement([1, 2, 3, 4]),
+        marital_status: faker.helpers.arrayElement(['single', 'married']),
       },
       education_employment: {
         education_level: faker.helpers.arrayElement(['B.Sc', 'M.Sc', 'Diploma', 'High School']),

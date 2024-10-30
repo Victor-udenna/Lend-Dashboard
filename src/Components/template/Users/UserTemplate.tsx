@@ -41,7 +41,7 @@ export default function UserTemplate() {
   const paginatedUsers = users.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   const handlePageChange = (page: number) => {
-    setCurrentPage(page);
+    setCurrentPage(page);  
   };
 
   const handleItemsPerPageChange = (items: number) => {

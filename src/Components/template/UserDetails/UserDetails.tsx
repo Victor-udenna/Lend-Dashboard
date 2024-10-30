@@ -24,6 +24,8 @@ export default function UserDetails() {
 
   console.log('Fetched user:', user);
 
+  console.log(user?.id);
+
   return (
     <div className="details">
       <Button
@@ -59,7 +61,7 @@ export default function UserDetails() {
               <Text className="user__name">
                 {user ? user?.personal_information?.firstname + ' ' + user?.personal_information?.lastname : 'loading'}
               </Text>
-              <Text className="user__id">{user ? user?.userid.slice(0, 1) : 'loading'}</Text>
+              <Text className="user__id">{user ? user?.userid.slice(0, 15) : 'loading'}</Text>
             </div>
             <div className="details__header__text__container user__tier__container">
               <Text className="user__tier">{'User’s Tier'}</Text>

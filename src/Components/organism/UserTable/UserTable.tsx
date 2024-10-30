@@ -10,7 +10,7 @@ import TableFilter from '@/Components/molecules/TableFilter/TableFilter';
 import activeUserIcon from '@/assets/images/active-user-btn.svg';
 import blackListuser from '@/assets/images/blacklist.svg';
 import { useRouter } from 'next/navigation';
-import { User } from '@/lib/db';
+import { User, updateUserStatus } from '@/lib/db';
 import EmptyState from '@/Components/molecules/EmptyState/EmptyState';
 
 interface UserTableProps {
@@ -30,7 +30,7 @@ export default function UserTable({ data }: UserTableProps) {
   const router = useRouter();
   const [filter, setFilter] = useState(false);
   const [selectedId, setSelectedId] = useState<string>('');
-  const [isPopup, setIspopUp] = useState(false);
+  const [isPopup, setIspopUp] = useState<boolean>(false);
   const [filteredData, setFilteredData] = useState<User[]>([...data]);
   const filterRef = useRef<HTMLDivElement>(null);
   const popupRef = useRef<HTMLDivElement>(null);
@@ -94,6 +94,11 @@ export default function UserTable({ data }: UserTableProps) {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  const handleStatusChange = async (userId: number, newStatus: string) => {
+    await updateUserStatus(userId, newStatus);
+    await router.refresh();
+  };
 
   return (
     <div className="user-table__container" ref={tableRef}>
@@ -190,6 +195,9 @@ export default function UserTable({ data }: UserTableProps) {
                           imageWidth={14}
                           imageSrc={blackListuser}
                           textValue="Blacklist User"
+                          onClick={() => {
+                            handleStatusChange(user?.id, 'blacklisted');
+                          }}
                         />
                       ) : (
                         <Button
@@ -198,6 +206,9 @@ export default function UserTable({ data }: UserTableProps) {
                           imageWidth={14}
                           imageSrc={activeUserIcon}
                           textValue="Activate User"
+                          onClick={() => {
+                            handleStatusChange(user?.id, 'active');
+                          }}
                         />
                       )}
                     </div>
