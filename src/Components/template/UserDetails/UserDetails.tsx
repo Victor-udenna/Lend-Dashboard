@@ -57,7 +57,7 @@ export default function UserDetails() {
                 textValue="Activate User"
               />
             ) : (
-              <Button
+               user?.id && <Button
                 onClick={() => {
                   handleStatusChange(user?.id, 'blacklisted');
                 }}
