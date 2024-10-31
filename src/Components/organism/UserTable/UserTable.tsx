@@ -123,26 +123,26 @@ export default function UserTable({ data }: UserTableProps) {
                   <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
                 </div>
               </th>
-              <th>
+              <th className='email_header'>
                 <div className="user-table__header">
                   <Text>EMAIL</Text>
                   <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
                 </div>
               </th>
-              <th>
+              <th className='phone_header'>
                 <div className="user-table__header">
                   <Text>PHONE NUMBER</Text>
                   <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
                 </div>
               </th>
-              <th>
+              <th className='date_joined'>
                 <div className="user-table__header">
                   <Text>DATE JOINED</Text>
                   <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
                 </div>
               </th>
               <th>
-                <div className="user-table__header">
+                <div className="user-table__header status_header">
                   <Text>STATUS</Text>
                   <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
                 </div>

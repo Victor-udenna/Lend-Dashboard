@@ -42,7 +42,9 @@ export default function SideBar() {
   const handleMenuClick = (path: string) => {
     setActiveMenu(path);
     router.push(path);
-    toggleSidebar()
+    if (window.innerWidth < 576) {
+      toggleSidebar();
+    }
   };
 
   useEffect(() => {

@@ -9,7 +9,7 @@ import Text from '@/Components/atom/Text';
 import starFill from '@/assets/images/star-fill.svg';
 import starline from '@/assets/images/star-line.svg';
 import { useRouter, useSearchParams } from 'next/navigation';
-import db from '@/lib/db';
+import db, { updateUserStatus } from '@/lib/db';
 import { useLiveQuery } from 'dexie-react-hooks';
 
 export default function UserDetails() {
@@ -21,6 +21,11 @@ export default function UserDetails() {
       return db.users.where('userid').equals(userId).first();
     }
   });
+
+  const handleStatusChange = async (userId: number, newStatus: string) => {
+    await updateUserStatus(userId, newStatus);
+    window.location.reload();
+  };
 
   console.log('Fetched user:', user);
 
@@ -43,10 +48,22 @@ export default function UserDetails() {
         <div className="details__header__cta">
           <h2 className="details__header__text">User details</h2>
           <div className="details__button__container">
-            {user?.status === 'active' ? (
-              <Button className="details__blacklist__btn" textValue="Blacklist User" />
+            {user?.status === 'blacklisted' || user?.status === 'pending' || user?.status === 'inactive' ? (
+              <Button
+                onClick={() => {
+                  handleStatusChange(user?.id, 'active');
+                }}
+                className="details__activate__btn"
+                textValue="Activate User"
+              />
             ) : (
-              <Button className="details__activate__btn" textValue="Activate User" />
+              <Button
+                onClick={() => {
+                  handleStatusChange(user?.id, 'blacklisted');
+                }}
+                className="details__blacklist__btn"
+                textValue="Blacklist User"
+              />
             )}
           </div>
         </div>

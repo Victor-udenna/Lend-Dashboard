@@ -1,7 +1,5 @@
-import React from 'react';
+import LoaderUi from '@/Components/molecules/Loader/LoaderUi';
 
-const loading = () => {
-  return <div>loading</div>;
-};
-
-export default loading;
+export default function Loading() {
+  return <LoaderUi />;
+}
