@@ -1,0 +1,41 @@
+.header-text {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28.15px;
+  text-align: left;
+  color: #213f7d;
+}
+
+.new-users {
+  margin-top: 48px;
+}
+
+.new-user__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 62px;
+}
+
+.new-user___header-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.77px;
+  text-align: left;
+  color: #213f7d;
+}
+
+.new-user_link {
+  color: #39cdcc;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.77px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.user-card__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}

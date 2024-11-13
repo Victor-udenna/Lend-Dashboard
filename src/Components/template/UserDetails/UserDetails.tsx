@@ -214,16 +214,16 @@ export default function UserDetails() {
               <Text className="details__information__text">
                 {user
                   ? '₦' +
-                    user.education_employment.min_monthly_income.toLocaleString() +
+                    user.education_employment.min_monthly_income?.toLocaleString() +
                     ' - ₦' +
-                    user.education_employment.max_monthly_income.toLocaleString()
+                    user.education_employment.max_monthly_income?.toLocaleString()
                   : 'Loading...'}
               </Text>
             </div>
             <div className="details__information__container">
               <Text className="details__information__header__text">{'Loan Repayment'}</Text>
               <Text className="details__information__text">
-                {user ? '₦' + user.education_employment.loan_repayment.toLocaleString() : 'Loading...'}
+                {user ? '₦' + user.education_employment.loan_repayment?.toLocaleString() : 'Loading...'}
               </Text>
             </div>
           </div>

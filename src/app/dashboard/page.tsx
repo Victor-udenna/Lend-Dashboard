@@ -1,7 +1,8 @@
+import DashboardTemplate from '@/Components/template/DashboardTemplate/DashboardTemplate';
 import React from 'react';
 
 const page = () => {
-  return <div>page</div>;
+  return <DashboardTemplate />;
 };
 
 export default page;
