@@ -7,11 +7,12 @@ type usercard = {
   lastname: string;
   amount: string;
   status: string;
+  onclick?: () => void;
 };
 
-export default function UserCard({ firstname, lastname, amount, status }: usercard) {
+export default function UserCard({ firstname, lastname, amount, status, onclick }: usercard) {
   return (
-    <div className="user-card">
+    <div onClick={onclick} className="user-card">
       <div className="user-card__header">
         <ImageAtom
           alt=""

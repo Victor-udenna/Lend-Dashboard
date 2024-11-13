@@ -32,10 +32,26 @@
   line-height: 18.77px;
   text-align: center;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .user-card__container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
+}
+
+@media screen and (max-width: 1024px) {
+  .user-card__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .user-card__container {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 18px;
+  }
 }

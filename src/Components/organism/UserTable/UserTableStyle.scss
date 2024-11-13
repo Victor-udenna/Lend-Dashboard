@@ -143,6 +143,23 @@ td {
   }
 }
 
+@media screen and (max-width: 1400px) {
+  .user-table {
+    width: 100%;
+
+    th,
+    td {
+      text-align: left;
+      padding: 26px 0px 26px 12px;
+      font-size: 13px;
+    }
+  }
+
+  .user-table__header p {
+    font-size: 11px;
+  }
+}
+
 @media screen and (max-width: 576px) {
   .user-table {
     width: 100%;
