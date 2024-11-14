@@ -81,6 +81,14 @@
   font-weight: 600;
 }
 
+@media screen and (max-width: 1024px) {
+  .user-image {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+  }
+}
+
 @media screen and (max-width: 576px) {
   .user-image {
     width: 50px;

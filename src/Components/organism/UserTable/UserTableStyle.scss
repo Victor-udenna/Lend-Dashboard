@@ -160,6 +160,22 @@ td {
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .user-table__email,
+  .user-table__phone,
+  .user-table__date-joined,
+  .user-table__moreaction,
+  .user-table__actionbtn {
+    display: none !important;
+  }
+
+  .phone_header,
+  .date_joined,
+  .email_header {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 576px) {
   .user-table {
     width: 100%;

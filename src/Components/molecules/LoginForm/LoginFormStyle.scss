@@ -114,28 +114,21 @@
   margin-top: 30px;
 }
 
-// @media screen and (max-width: 576px) {
-//   .login-form {
-//     padding: 0px;
-//     width: 100%;
-//     display: block;
-//     background-color: red;
-//   }
+@media screen and (max-width: 1024px) {
+  .login-form {
+    padding: 0px;
+    width: 100%;
+    display: block;
+  }
+  .login-form__input-wrapper {
+    width: 100%;
+  }
 
-//   .login-form__input-container {
-//     width: 100%;
-//     max-width: 576px;
-//     background-color: green;
-
-//     input {
-//       width: fit-content;
-//     }
-//   }
-
-//   .login-form__button {
-//     width: 100%;
-//   }
-// }
+  .login-form__input,
+  .login-form__button {
+    width: 100%;
+  }
+}
 
 @media screen and (max-width: 576px) {
   .login-form {

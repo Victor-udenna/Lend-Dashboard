@@ -35,12 +35,17 @@
   display: none;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 1024px) {
   .login-template {
-    padding: 60px 20px;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    padding: 60px 20px;
     align-items: start;
     gap: 62px;
+    width: 60%;
+    margin: auto;
+    padding-top: 120px;
   }
 
   .login-template__mobile-logo__container {
@@ -55,10 +60,16 @@
   .login-template__poster {
     display: none;
   }
+}
 
+@media screen and (max-width: 576px) {
   .login-template {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 60px 20px;
+    align-items: start;
+    gap: 62px;
+    width: 100%;
   }
 }
