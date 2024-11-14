@@ -107,52 +107,52 @@ export default function UserTable({ data }: UserTableProps) {
           <TableFilter onFilterApply={applyFilter} />
         </div>
       )}
-      {filteredData.length > 0 ? (
-        <table className="user-table">
-          <thead>
-            <tr>
-              <th>
-                <div className="user-table__header">
-                  <Text>ORGANIZATION</Text>
-                  <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
-                </div>
-              </th>
-              <th>
-                <div className="user-table__header">
-                  <Text>USERNAME</Text>
-                  <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
-                </div>
-              </th>
-              <th className='email_header'>
-                <div className="user-table__header">
-                  <Text>EMAIL</Text>
-                  <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
-                </div>
-              </th>
-              <th className='phone_header'>
-                <div className="user-table__header">
-                  <Text>PHONE NUMBER</Text>
-                  <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
-                </div>
-              </th>
-              <th className='date_joined'>
-                <div className="user-table__header">
-                  <Text>DATE JOINED</Text>
-                  <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
-                </div>
-              </th>
-              <th>
-                <div className="user-table__header status_header">
-                  <Text>STATUS</Text>
-                  <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
-                </div>
-              </th>
-              <th className="user-table__moreaction">
-                <Text>{'More'}</Text>
-              </th>
-            </tr>
-          </thead>
-
+      {/* {filteredData.length > 0 ? ( */}
+      <table className="user-table">
+        <thead>
+          <tr>
+            <th>
+              <div className="user-table__header">
+                <Text>ORGANIZATION</Text>
+                <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
+              </div>
+            </th>
+            <th>
+              <div className="user-table__header">
+                <Text>USERNAME</Text>
+                <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
+              </div>
+            </th>
+            <th className="email_header">
+              <div className="user-table__header">
+                <Text>EMAIL</Text>
+                <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
+              </div>
+            </th>
+            <th className="phone_header">
+              <div className="user-table__header">
+                <Text>PHONE NUMBER</Text>
+                <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
+              </div>
+            </th>
+            <th className="date_joined">
+              <div className="user-table__header">
+                <Text>DATE JOINED</Text>
+                <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
+              </div>
+            </th>
+            <th>
+              <div className="user-table__header status_header">
+                <Text>STATUS</Text>
+                <ImageAtom onClick={toggleFilter} alt="filter-icon" width={16} height={16} src={filterIcon} />
+              </div>
+            </th>
+            <th className="user-table__moreaction">
+              <Text>{'More'}</Text>
+            </th>
+          </tr>
+        </thead>
+        {filteredData.length > 0 ? (
           <tbody>
             {filteredData.map((user: User) => (
               <tr key={user.userid} className="user-table__row">
@@ -217,12 +217,12 @@ export default function UserTable({ data }: UserTableProps) {
               </tr>
             ))}
           </tbody>
-        </table>
-      ) : (
-        <div className="user-table__empty-state">
-          <EmptyState title="No data Found" desc="try refreshing this page to view data" />
-        </div>
-      )}
+        ) : (
+          <div className="user-table__empty-state">
+            <EmptyState title="No data Found" desc="try refreshing this page to view data" />
+          </div>
+        )}
+      </table>
     </div>
   );
 }
