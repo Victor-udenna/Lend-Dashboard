@@ -122,6 +122,12 @@
     display: none;
   }
 
+  .header__search-section {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+  }
+
   .header__user-docs {
     display: none;
   }
