@@ -1,5 +1,4 @@
-
-# Next.js Project with, SCSS, Atomic Design,  and IndexedDB
+# Next.js Project with, SCSS, Atomic Design, and IndexedDB
 
 This project is a Next.js application built using the Atomic Design methodology, SCSS for styling, and IndexedDB for offline data storage.
 
@@ -8,10 +7,10 @@ This project is a Next.js application built using the Atomic Design methodology,
 This project uses the Atomic Design methodology, which breaks down UI components into five categories:
 
 1. **Atoms** – The smallest building blocks (e.g., buttons, inputs).
-2. **Molecules** – Groups of atoms that work together (e.g., a form label and input).
-3. **Organisms** – Complex groups of molecules that form distinct sections of the UI (e.g., a header with navigation links).
-4. **Templates** – Page layouts composed of organisms, providing structure but without specific data.
-5. **Pages** – Fully fleshed-out templates with data, forming the full application view.
+2. **Molecules** – Groups of atoms that work together.
+3. **Organisms** – Complex groups of molecules that form distinct sections of the UI .
+4. **Templates** – Page layouts composed of organisms, providing structure.
+5. **Pages** – Fully fleshed-out templates, forming the full application view.
 
 ## Features
 
@@ -28,12 +27,14 @@ This project uses the Atomic Design methodology, which breaks down UI components
 ## Installation
 
 1. Clone this repository:
+
    ```bash
-   git clone <repository_url>
-   cd <project_name>
+   git clone <https://github.com/Victor-udenna/Lend-Dashboard.git>
+   cd dashboard
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    # or
@@ -41,6 +42,7 @@ This project uses the Atomic Design methodology, which breaks down UI components
    ```
 
 3. Start the development server:
+
    ```bash
    npm run dev
    # or

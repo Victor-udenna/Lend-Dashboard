@@ -106,7 +106,7 @@ export default function UserDetails() {
               )}
             </div>
             <div className="details__header__text__container">
-              <Text className="user__loan">{user ? '₦' + user?.account_balance?.toLocaleString() : 'loading'}</Text>
+              <Text className="user__loan">{user ? '₦' + user.account_balance?.toLocaleString() : 'loading'}</Text>
               <Text className="user__bank">{`${user ? user.account_number : 'loading'}/${
                 user ? user.bank : 'loading'
               }`}</Text>
