@@ -27,8 +27,6 @@ export default function UserDetails() {
     window.location.reload();
   };
 
-  console.log('Fetched user:', user);
-
   return (
     <div className="details">
       <Button
@@ -57,13 +55,15 @@ export default function UserDetails() {
                 textValue="Activate User"
               />
             ) : (
-               user?.id && <Button
-                onClick={() => {
-                  handleStatusChange(user?.id, 'blacklisted');
-                }}
-                className="details__blacklist__btn"
-                textValue="Blacklist User"
-              />
+              user?.id && (
+                <Button
+                  onClick={() => {
+                    handleStatusChange(user?.id, 'blacklisted');
+                  }}
+                  className="details__blacklist__btn"
+                  textValue="Blacklist User"
+                />
+              )
             )}
           </div>
         </div>
@@ -106,7 +106,7 @@ export default function UserDetails() {
               )}
             </div>
             <div className="details__header__text__container">
-              <Text className="user__loan">{user ? '₦' + user.account_balance.toLocaleString() : 'loading'}</Text>
+              <Text className="user__loan">{user ? '₦' + user?.account_balance?.toLocaleString() : 'loading'}</Text>
               <Text className="user__bank">{`${user ? user.account_number : 'loading'}/${
                 user ? user.bank : 'loading'
               }`}</Text>
